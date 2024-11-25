@@ -1,0 +1,30 @@
+{
+  "candidatApp": {
+    "experiencePro": {
+      "home": {
+        "title": "ExperiencePros",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Experience Pro",
+        "createOrEditLabel": "Créer ou éditer un Experience Pro",
+        "notFound": "Aucun Experience Pro trouvé"
+      },
+      "created": "Un nouveau Experience Pro a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Experience Pro avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Experience Pro avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Experience Pro {{ id }} ?"
+      },
+      "detail": {
+        "title": "Experience Pro"
+      },
+      "id": "ID",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "title": "Title",
+      "description": "Description",
+      "fonction": "Fonction",
+      "place": "Place",
+      "resume": "Resume"
+    }
+  }
+}

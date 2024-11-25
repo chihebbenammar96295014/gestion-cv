@@ -1,0 +1,47 @@
+{
+  "applications": ["candidatApp"],
+  "changelogDate": "20241125191420",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "assessment",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "niveau",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Assessment",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "feedbackTest",
+      "otherEntityRelationshipName": "assessment",
+      "relationshipName": "feedbackTest",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "question",
+      "otherEntityRelationshipName": "assessment",
+      "ownerSide": true,
+      "relationshipName": "question",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

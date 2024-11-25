@@ -1,0 +1,28 @@
+{
+  "candidatApp": {
+    "feedbackTest": {
+      "home": {
+        "title": "Feedback Tests",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Feedback Test",
+        "createOrEditLabel": "Create or edit a Feedback Test",
+        "notFound": "No Feedback Tests found"
+      },
+      "created": "A new Feedback Test is created with identifier {{ param }}",
+      "updated": "A Feedback Test is updated with identifier {{ param }}",
+      "deleted": "A Feedback Test is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Feedback Test {{ id }}?"
+      },
+      "detail": {
+        "title": "Feedback Test"
+      },
+      "id": "ID",
+      "note": "Note",
+      "commentaires": "Commentaires",
+      "reponse": "Reponse",
+      "appUser": "App User",
+      "assessment": "Assessment"
+    }
+  }
+}

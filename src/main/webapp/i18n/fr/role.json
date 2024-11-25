@@ -1,0 +1,9 @@
+{
+  "candidatApp": {
+    "Role": {
+      "null": "",
+      "CANDIDAT": "CANDIDAT",
+      "ADMIN": "ADMIN"
+    }
+  }
+}

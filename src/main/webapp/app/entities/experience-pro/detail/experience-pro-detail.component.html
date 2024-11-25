@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="experiencePro">
+      <h2 data-cy="experienceProDetailsHeading"><span jhiTranslate="candidatApp.experiencePro.detail.title">Experience Pro</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ experiencePro.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.experiencePro.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ experiencePro.startDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.experiencePro.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ experiencePro.endDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.experiencePro.title">Title</span></dt>
+        <dd>
+          <span>{{ experiencePro.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.experiencePro.description">Description</span></dt>
+        <dd>
+          <span>{{ experiencePro.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.experiencePro.fonction">Fonction</span></dt>
+        <dd>
+          <span>{{ experiencePro.fonction }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.experiencePro.place">Place</span></dt>
+        <dd>
+          <span>{{ experiencePro.place }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.experiencePro.resume">Resume</span></dt>
+        <dd>
+          <div *ngIf="experiencePro.resume">
+            <a [routerLink]="['/resume', experiencePro.resume.id, 'view']">{{ experiencePro.resume.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/experience-pro', experiencePro.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

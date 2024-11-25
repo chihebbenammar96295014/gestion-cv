@@ -1,0 +1,44 @@
+{
+  "applications": ["candidatApp"],
+  "changelogDate": "20241125191220",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "formation",
+  "fields": [
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "place",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Formation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "resume",
+      "otherEntityRelationshipName": "formation",
+      "relationshipName": "resume",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

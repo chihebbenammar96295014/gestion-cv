@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="feedbackTest">
+      <h2 data-cy="feedbackTestDetailsHeading"><span jhiTranslate="candidatApp.feedbackTest.detail.title">Feedback Test</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ feedbackTest.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.feedbackTest.note">Note</span></dt>
+        <dd>
+          <span>{{ feedbackTest.note }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.feedbackTest.commentaires">Commentaires</span></dt>
+        <dd>
+          <span>{{ feedbackTest.commentaires }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.feedbackTest.appUser">App User</span></dt>
+        <dd>
+          <div *ngIf="feedbackTest.appUser">
+            <a [routerLink]="['/app-user', feedbackTest.appUser.id, 'view']">{{ feedbackTest.appUser.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.feedbackTest.assessment">Assessment</span></dt>
+        <dd>
+          <div *ngIf="feedbackTest.assessment">
+            <a [routerLink]="['/assessment', feedbackTest.assessment.id, 'view']">{{ feedbackTest.assessment.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/feedback-test', feedbackTest.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

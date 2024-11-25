@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="appUser">
+      <h2 data-cy="appUserDetailsHeading"><span jhiTranslate="candidatApp.appUser.detail.title">App User</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ appUser.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.appUser.nom">Nom</span></dt>
+        <dd>
+          <span>{{ appUser.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.appUser.prenom">Prenom</span></dt>
+        <dd>
+          <span>{{ appUser.prenom }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.appUser.email">Email</span></dt>
+        <dd>
+          <span>{{ appUser.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.appUser.motDePasse">Mot De Passe</span></dt>
+        <dd>
+          <span>{{ appUser.motDePasse }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.appUser.adresse">Adresse</span></dt>
+        <dd>
+          <span>{{ appUser.adresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.appUser.numTelephone">Num Telephone</span></dt>
+        <dd>
+          <span>{{ appUser.numTelephone }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.appUser.typeUser">Type User</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'candidatApp.Role.' + appUser.typeUser }}">{{ appUser.typeUser }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.appUser.resume">Resume</span></dt>
+        <dd>
+          <div *ngIf="appUser.resume">
+            <a [routerLink]="['/resume', appUser.resume.id, 'view']">{{ appUser.resume.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/app-user', appUser.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

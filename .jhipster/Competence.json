@@ -1,0 +1,33 @@
+{
+  "applications": ["candidatApp"],
+  "changelogDate": "20241125191120",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "competence",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "niveau",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Competence",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "resume",
+      "otherEntityRelationshipName": "competence",
+      "relationshipName": "resume",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

@@ -1,0 +1,30 @@
+{
+  "candidatApp": {
+    "experiencePro": {
+      "home": {
+        "title": "Experience Pros",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Experience Pro",
+        "createOrEditLabel": "Create or edit a Experience Pro",
+        "notFound": "No Experience Pros found"
+      },
+      "created": "A new Experience Pro is created with identifier {{ param }}",
+      "updated": "A Experience Pro is updated with identifier {{ param }}",
+      "deleted": "A Experience Pro is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Experience Pro {{ id }}?"
+      },
+      "detail": {
+        "title": "Experience Pro"
+      },
+      "id": "ID",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "title": "Title",
+      "description": "Description",
+      "fonction": "Fonction",
+      "place": "Place",
+      "resume": "Resume"
+    }
+  }
+}

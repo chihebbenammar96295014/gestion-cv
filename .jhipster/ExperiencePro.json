@@ -1,0 +1,48 @@
+{
+  "applications": ["candidatApp"],
+  "changelogDate": "20241125191320",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "experience_pro",
+  "fields": [
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fonction",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "place",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ExperiencePro",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "resume",
+      "otherEntityRelationshipName": "experiencePro",
+      "relationshipName": "resume",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

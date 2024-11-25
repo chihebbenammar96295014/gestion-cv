@@ -1,0 +1,51 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="assessment">
+      <h2 data-cy="assessmentDetailsHeading"><span jhiTranslate="candidatApp.assessment.detail.title">Assessment</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ assessment.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.assessment.nom">Nom</span></dt>
+        <dd>
+          <span>{{ assessment.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.assessment.description">Description</span></dt>
+        <dd>
+          <span>{{ assessment.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.assessment.niveau">Niveau</span></dt>
+        <dd>
+          <span>{{ assessment.niveau }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.assessment.date">Date</span></dt>
+        <dd>
+          <span>{{ assessment.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="candidatApp.assessment.question">Question</span></dt>
+        <dd>
+          <span *ngFor="let question of assessment.questions; let last = last">
+            <a [routerLink]="['/question', question.id, 'view']">{{ question.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/assessment', assessment.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

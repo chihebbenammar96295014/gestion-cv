@@ -1,0 +1,143 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-app-user-heading" data-cy="AppUserCreateUpdateHeading" jhiTranslate="candidatApp.appUser.home.createOrEditLabel">
+        Create or edit a App User
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="candidatApp.appUser.nom" for="field_nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="field_nom" data-cy="nom" formControlName="nom" />
+          <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nom')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="candidatApp.appUser.prenom" for="field_prenom">Prenom</label>
+          <input type="text" class="form-control" name="prenom" id="field_prenom" data-cy="prenom" formControlName="prenom" />
+          <div *ngIf="editForm.get('prenom')!.invalid && (editForm.get('prenom')!.dirty || editForm.get('prenom')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('prenom')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="candidatApp.appUser.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+          <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('email')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="candidatApp.appUser.motDePasse" for="field_motDePasse">Mot De Passe</label>
+          <input
+            type="text"
+            class="form-control"
+            name="motDePasse"
+            id="field_motDePasse"
+            data-cy="motDePasse"
+            formControlName="motDePasse"
+          />
+          <div *ngIf="editForm.get('motDePasse')!.invalid && (editForm.get('motDePasse')!.dirty || editForm.get('motDePasse')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('motDePasse')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="candidatApp.appUser.adresse" for="field_adresse">Adresse</label>
+          <input type="text" class="form-control" name="adresse" id="field_adresse" data-cy="adresse" formControlName="adresse" />
+          <div *ngIf="editForm.get('adresse')!.invalid && (editForm.get('adresse')!.dirty || editForm.get('adresse')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('adresse')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="candidatApp.appUser.numTelephone" for="field_numTelephone">Num Telephone</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numTelephone"
+            id="field_numTelephone"
+            data-cy="numTelephone"
+            formControlName="numTelephone"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="candidatApp.appUser.typeUser" for="field_typeUser">Type User</label>
+          <select class="form-control" name="typeUser" formControlName="typeUser" id="field_typeUser" data-cy="typeUser">
+            <option [ngValue]="null">{{ 'candidatApp.Role.null' | translate }}</option>
+            <option *ngFor="let role of roleValues" [value]="role">{{ 'candidatApp.Role.' + role | translate }}</option>
+          </select>
+          <div *ngIf="editForm.get('typeUser')!.invalid && (editForm.get('typeUser')!.dirty || editForm.get('typeUser')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('typeUser')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="candidatApp.appUser.resume" for="field_resume">Resume</label>
+          <select
+            class="form-control"
+            id="field_resume"
+            data-cy="resume"
+            name="resume"
+            formControlName="resume"
+            [compareWith]="compareResume"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="resumeOption" *ngFor="let resumeOption of resumesCollection">{{ resumeOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

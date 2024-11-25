@@ -1,0 +1,65 @@
+{
+  "applications": ["candidatApp"],
+  "changelogDate": "20241125190920",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "app_user",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "motDePasse",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "adresse",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "numTelephone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "typeUser",
+      "fieldType": "Role",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "CANDIDAT,ADMIN"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AppUser",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "resume",
+      "otherEntityRelationshipName": "appUser",
+      "ownerSide": true,
+      "relationshipName": "resume",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "feedbackTest",
+      "otherEntityRelationshipName": "appUser",
+      "relationshipName": "feedbackTest",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

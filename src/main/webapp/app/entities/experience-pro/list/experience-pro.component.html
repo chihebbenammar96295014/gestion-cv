@@ -1,0 +1,134 @@
+<div>
+  <h2 id="page-heading" data-cy="ExperienceProHeading">
+    <span jhiTranslate="candidatApp.experiencePro.home.title">Experience Pros</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="candidatApp.experiencePro.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-experience-pro"
+        [routerLink]="['/experience-pro/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="candidatApp.experiencePro.home.createLabel"> Create a new Experience Pro </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="experiencePros?.length === 0">
+    <span jhiTranslate="candidatApp.experiencePro.home.notFound">No Experience Pros found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="experiencePros && experiencePros.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="startDate">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.experiencePro.startDate">Start Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="endDate">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.experiencePro.endDate">End Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="title">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.experiencePro.title">Title</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.experiencePro.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fonction">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.experiencePro.fonction">Fonction</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="place">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.experiencePro.place">Place</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="resume.id">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.experiencePro.resume">Resume</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let experiencePro of experiencePros; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/experience-pro', experiencePro.id, 'view']">{{ experiencePro.id }}</a>
+          </td>
+          <td>{{ experiencePro.startDate | formatMediumDate }}</td>
+          <td>{{ experiencePro.endDate | formatMediumDate }}</td>
+          <td>{{ experiencePro.title }}</td>
+          <td>{{ experiencePro.description }}</td>
+          <td>{{ experiencePro.fonction }}</td>
+          <td>{{ experiencePro.place }}</td>
+          <td>
+            <div *ngIf="experiencePro.resume">
+              <a [routerLink]="['/resume', experiencePro.resume.id, 'view']">{{ experiencePro.resume.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/experience-pro', experiencePro.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/experience-pro', experiencePro.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(experiencePro)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

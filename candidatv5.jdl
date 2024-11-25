@@ -1,0 +1,107 @@
+application { 
+  config {
+    baseName candidatApp,
+    applicationType monolith,
+    packageName com.chiedba.candidat,
+    databaseType sql,
+    devDatabaseType h2Disk,
+    prodDatabaseType postgresql,
+    buildTool maven,
+    enableHibernateCache true,
+    enableSwaggerCodegen true,
+    enableTranslation true,
+    nativeLanguage en,
+    languages [fr, en],
+    authenticationType oauth2
+  }
+  entities *
+}
+
+entity AppUser {
+  nom String required
+  prenom String required
+  email String required
+  motDePasse String required
+  adresse String required
+  numTelephone String
+  typeUser Role required
+}
+
+enum Role {
+  CANDIDAT,
+  ADMIN
+}
+
+entity Resume {
+  description String required
+}
+
+entity Competence {
+  name String required
+  niveau Float required
+}
+entity Formation {
+  startDate LocalDate
+  endDate LocalDate
+  title String required
+  description String
+  place String
+}
+entity ExperiencePro {
+  startDate LocalDate
+  endDate LocalDate
+  title String required
+  description String
+  fonction String
+  place String
+}
+
+entity Assessment {
+  nom String required
+  description String
+  niveau String
+  date Instant
+}
+
+entity Question {
+  order Integer required
+  question String required
+  reponseCorrecte String required
+}
+entity Reponse {
+  order Integer required
+  content String required
+
+}
+
+entity FeedbackTest {
+  note Float
+  commentaires String
+}
+
+relationship OneToOne {
+  AppUser to Resume
+}
+
+relationship OneToMany {
+  Resume to Competence
+  Resume to ExperiencePro
+  Resume to Formation
+  Assessment to FeedbackTest
+  FeedbackTest to Reponse
+
+}
+
+relationship ManyToOne {
+  FeedbackTest to AppUser
+}
+
+relationship ManyToMany {
+  Assessment to Question
+}
+
+paginate AppUser, Resume, Assessment, FeedbackTest with pagination
+
+dto * with mapstruct
+
+service * with serviceClass

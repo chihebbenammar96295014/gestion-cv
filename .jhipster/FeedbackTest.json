@@ -1,0 +1,43 @@
+{
+  "applications": ["candidatApp"],
+  "changelogDate": "20241125191720",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "feedback_test",
+  "fields": [
+    {
+      "fieldName": "note",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "commentaires",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "FeedbackTest",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "reponse",
+      "otherEntityRelationshipName": "feedbackTest",
+      "relationshipName": "reponse",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "appUser",
+      "otherEntityRelationshipName": "feedbackTest",
+      "relationshipName": "appUser",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "assessment",
+      "otherEntityRelationshipName": "feedbackTest",
+      "relationshipName": "assessment",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}
