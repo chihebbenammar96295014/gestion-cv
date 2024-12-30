@@ -16,6 +16,7 @@
         <div class="row mb-3">
           <label class="form-label" jhiTranslate="candidatApp.reponse.order" for="field_order">Order</label>
           <input type="number" class="form-control" name="order" id="field_order" data-cy="order" formControlName="order" />
+
           <div *ngIf="editForm.get('order')!.invalid && (editForm.get('order')!.dirty || editForm.get('order')!.touched)">
             <small class="form-text text-danger" *ngIf="editForm.get('order')?.errors?.required" jhiTranslate="entity.validation.required">
               This field is required.

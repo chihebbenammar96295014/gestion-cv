@@ -39,8 +39,8 @@ public class AppUser implements Serializable {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @NotNull
-    @Column(name = "mot_de_passe", nullable = false)
+    //@NotNull
+    @Column(name = "mot_de_passe")
     private String motDePasse;
 
     @NotNull
@@ -50,9 +50,9 @@ public class AppUser implements Serializable {
     @Column(name = "num_telephone")
     private String numTelephone;
 
-    @NotNull
+    //@NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "type_user", nullable = false)
+    @Column(name = "type_user")
     private Role typeUser;
 
     @JsonIgnoreProperties(value = { "competences", "experiencePros", "formations", "appUser" }, allowSetters = true)

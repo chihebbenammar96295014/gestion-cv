@@ -18,13 +18,20 @@ import { HomeModule } from './home/home.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { NgbDateDayjsAdapter } from './config/datepicker-adapter';
 import { fontAwesomeIcons } from './config/font-awesome-icons';
-import { httpInterceptorProviders } from 'app/core/interceptor/index';
+import { httpInterceptorProviders } from './core/interceptor';
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
+import { TendenceCvComponent } from './home/tendence-cv/tendence-cv.component';
+import { FormulaireCVComponent } from './formulaire-cv/formulaire-cv.component';
+import { CompetenceModule } from './entities/competence/competence.module';
+import { FormationModule } from './entities/formation/formation.module';
+import { AppUserModule } from './entities/app-user/app-user.module';
+import { ExperienceProModule } from './entities/experience-pro/experience-pro.module';
+import { ListFormulaireCvComponent } from './formulaire-cv/list-formulaire-cv/list-formulaire-cv.component';
 
 @NgModule({
   imports: [
@@ -38,6 +45,11 @@ import { ErrorComponent } from './layouts/error/error.component';
     HttpClientModule,
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
     TranslationModule,
+    TendenceCvComponent,
+    CompetenceModule,
+    FormationModule,
+    AppUserModule,
+    ExperienceProModule,
   ],
   providers: [
     Title,
@@ -45,7 +57,16 @@ import { ErrorComponent } from './layouts/error/error.component';
     { provide: NgbDateAdapter, useClass: NgbDateDayjsAdapter },
     httpInterceptorProviders,
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+  declarations: [
+    MainComponent,
+    NavbarComponent,
+    ErrorComponent,
+    PageRibbonComponent,
+    ActiveMenuDirective,
+    FooterComponent,
+    FormulaireCVComponent,
+    ListFormulaireCvComponent,
+  ],
   bootstrap: [MainComponent],
 })
 export class AppModule {

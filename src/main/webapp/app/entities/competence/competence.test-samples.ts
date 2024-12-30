@@ -2,8 +2,8 @@ import { ICompetence, NewCompetence } from './competence.model';
 
 export const sampleWithRequiredData: ICompetence = {
   id: 53780,
-  name: 'SCSI Corporate',
-  niveau: 19613,
+  name: 'Angular',
+  niveau: 9,
 };
 
 export const sampleWithPartialData: ICompetence = {

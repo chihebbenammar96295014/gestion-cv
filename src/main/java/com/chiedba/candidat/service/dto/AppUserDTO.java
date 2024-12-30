@@ -22,7 +22,7 @@ public class AppUserDTO implements Serializable {
     @NotNull
     private String email;
 
-    @NotNull
+    //@NotNull
     private String motDePasse;
 
     @NotNull
@@ -30,7 +30,7 @@ public class AppUserDTO implements Serializable {
 
     private String numTelephone;
 
-    @NotNull
+    //@NotNull
     private Role typeUser;
 
     private ResumeDTO resume;

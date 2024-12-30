@@ -1,55 +1,57 @@
-<div class="d-flex justify-content-center">
-  <div class="col-8">
-    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2 id="jhi-resume-heading" data-cy="ResumeCreateUpdateHeading" jhiTranslate="candidatApp.resume.home.createOrEditLabel">
-        Create or edit a Resume
-      </h2>
-
-      <div>
-        <jhi-alert-error></jhi-alert-error>
-
-        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
-          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
-          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
-        </div>
-
-        <div class="row mb-3">
-          <label class="form-label" jhiTranslate="candidatApp.resume.description" for="field_description">Description</label>
-          <input
-            type="text"
-            class="form-control"
-            name="description"
-            id="field_description"
-            data-cy="description"
-            formControlName="description"
-          />
-          <div *ngIf="editForm.get('description')!.invalid && (editForm.get('description')!.dirty || editForm.get('description')!.touched)">
-            <small
-              class="form-text text-danger"
-              *ngIf="editForm.get('description')?.errors?.required"
-              jhiTranslate="entity.validation.required"
-            >
-              This field is required.
-            </small>
-          </div>
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Gestion du CV</h2>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">Informations Utilisateur</div>
+        <div class="card-body">
+          <jhi-app-user-update></jhi-app-user-update>
         </div>
       </div>
-
-      <div>
-        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
-          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-        </button>
-
-        <button
-          type="submit"
-          id="save-entity"
-          data-cy="entityCreateSaveButton"
-          [disabled]="editForm.invalid || isSaving"
-          class="btn btn-primary"
-        >
-          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-        </button>
+    </div>
+    <div class="col-md-6 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">Compétences</div>
+        <div class="card-body">
+          <jhi-competence-update></jhi-competence-update>
+        </div>
       </div>
-    </form>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">Formation</div>
+        <div class="card-body">
+          <jhi-formation-update></jhi-formation-update>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">Experience Pro</div>
+        <div class="card-body">
+          <jhi-experience-pro-update></jhi-experience-pro-update>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<style>
+  .card {
+    border-radius: 10px;
+  }
+
+  .card-header {
+    font-weight: bold;
+  }
+
+  .shadow-sm {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: #333;
+  }
+</style>

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormulaireCVComponent } from '../formulaire-cv/formulaire-cv.component';
+import { EntretienComponent } from '../home/entretien/entretien.component';
 
 @NgModule({
   imports: [
@@ -48,6 +50,10 @@ import { RouterModule } from '@angular/router';
         path: 'feedback-test',
         data: { pageTitle: 'candidatApp.feedbackTest.home.title' },
         loadChildren: () => import('./feedback-test/feedback-test.module').then(m => m.FeedbackTestModule),
+      },
+      {
+        path: 'entretien',
+        component: EntretienComponent,
       },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),

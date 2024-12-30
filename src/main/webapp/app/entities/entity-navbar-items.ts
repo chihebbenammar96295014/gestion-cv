@@ -25,6 +25,11 @@ export const EntityNavbarItems = [
     translationKey: 'global.menu.entities.experiencePro',
   },
   {
+    name: 'formationCv',
+    route: 'formationCv',
+    translationKey: 'global.menu.entities.formationCv',
+  },
+  {
     name: 'Assessment',
     route: 'assessment',
     translationKey: 'global.menu.entities.assessment',

@@ -9,5 +9,6 @@ import { ExperienceProRoutingModule } from './route/experience-pro-routing.modul
 @NgModule({
   imports: [SharedModule, ExperienceProRoutingModule],
   declarations: [ExperienceProComponent, ExperienceProDetailComponent, ExperienceProUpdateComponent, ExperienceProDeleteDialogComponent],
+  exports: [ExperienceProUpdateComponent],
 })
 export class ExperienceProModule {}

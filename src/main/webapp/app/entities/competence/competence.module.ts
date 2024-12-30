@@ -9,5 +9,6 @@ import { CompetenceRoutingModule } from './route/competence-routing.module';
 @NgModule({
   imports: [SharedModule, CompetenceRoutingModule],
   declarations: [CompetenceComponent, CompetenceDetailComponent, CompetenceUpdateComponent, CompetenceDeleteDialogComponent],
+  exports: [CompetenceUpdateComponent],
 })
 export class CompetenceModule {}

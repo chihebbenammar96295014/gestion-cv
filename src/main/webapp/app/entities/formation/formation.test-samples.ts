@@ -4,7 +4,7 @@ import { IFormation, NewFormation } from './formation.model';
 
 export const sampleWithRequiredData: IFormation = {
   id: 7564,
-  title: 'Norwegian overriding Uruguayo',
+  title: 'React',
 };
 
 export const sampleWithPartialData: IFormation = {
@@ -17,10 +17,10 @@ export const sampleWithPartialData: IFormation = {
 export const sampleWithFullData: IFormation = {
   id: 79654,
   startDate: dayjs('2024-11-25'),
-  endDate: dayjs('2024-11-25'),
-  title: 'Persevering',
-  description: 'ADP RSS',
-  place: 'Wooden JSON',
+  endDate: dayjs('2024-12-25'),
+  title: 'Spring boot',
+  description: 'amazing',
+  place: 'Sahloul',
 };
 
 export const sampleWithNewData: NewFormation = {

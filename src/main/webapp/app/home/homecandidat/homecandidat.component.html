@@ -1,0 +1,59 @@
+<div class="visiteur-page">
+  <header class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>plateforme de gestion des compétences</h1>
+        <p>
+          Explorez nos services pour évaluer vos compétences, créer un CV professionnel et préparer votre carrière avec des suggestions
+          personnalisées.
+        </p>
+      </div>
+      <div class="hero-image">
+        <img src="/content/images/gestion%20de%20competence.jpg" alt="Visiteur Bienvenue" />
+      </div>
+    </div>
+  </header>
+
+  <section class="section-container">
+    <div class="content-box">
+      <h3>Créez votre CV</h3>
+      <p>
+        Utilisez notre formulaire interactif pour générer un CV bien structuré, mettant en avant vos expériences professionnelles, vos
+        formations et vos compétences spécifiques. Mettez à jour votre CV régulièrement pour refléter vos progrès.
+      </p>
+      <button class="cta-button" (click)="navigateToForm()">→</button>
+    </div>
+    <div class="content-box">
+      <h3>Évaluez vos compétences</h3>
+      <p>
+        Passez des tests d'évaluation conçus par des experts dans divers domaines (technologies, gestion, langues, etc.). Identifiez vos
+        forces et découvrez les points à améliorer pour exceller dans votre parcours professionnel.
+      </p>
+    </div>
+  </section>
+  <section class="tips-container">
+    <h3>TOP Conseils Carrière</h3>
+    <a href="#" class="see-all">PARCOURIR LES ARTICLES →</a>
+    <div class="tips-list">
+      <a routerLink="/abc">
+        <div class="tip">
+          <img src="/content/images/image%20entretien2.jpg" alt="Conseil 1" />
+          <h4><br />CV</h4>
+
+          <p>Les tendances CV du moment</p>
+        </div>
+      </a>
+      <a routerLink="entretien">
+        <div class="tip">
+          <img src="/content/images/image%20cv.jpg" alt="Conseil 2" />
+          <h4>Entretien</h4>
+          <p>Les conseils pour réussir un entretien</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Déjà inscrit ?</p>
+  </footer>
+</div>

@@ -12,6 +12,7 @@ import { ResumeService } from 'app/entities/resume/service/resume.service';
 
 @Component({
   selector: 'jhi-experience-pro-update',
+
   templateUrl: './experience-pro-update.component.html',
 })
 export class ExperienceProUpdateComponent implements OnInit {

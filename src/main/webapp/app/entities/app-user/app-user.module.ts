@@ -9,5 +9,6 @@ import { AppUserRoutingModule } from './route/app-user-routing.module';
 @NgModule({
   imports: [SharedModule, AppUserRoutingModule],
   declarations: [AppUserComponent, AppUserDetailComponent, AppUserUpdateComponent, AppUserDeleteDialogComponent],
+  exports: [AppUserComponent, AppUserUpdateComponent],
 })
 export class AppUserModule {}

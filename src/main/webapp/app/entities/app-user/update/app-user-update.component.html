@@ -96,15 +96,6 @@
             <option [ngValue]="null">{{ 'candidatApp.Role.null' | translate }}</option>
             <option *ngFor="let role of roleValues" [value]="role">{{ 'candidatApp.Role.' + role | translate }}</option>
           </select>
-          <div *ngIf="editForm.get('typeUser')!.invalid && (editForm.get('typeUser')!.dirty || editForm.get('typeUser')!.touched)">
-            <small
-              class="form-text text-danger"
-              *ngIf="editForm.get('typeUser')?.errors?.required"
-              jhiTranslate="entity.validation.required"
-            >
-              This field is required.
-            </small>
-          </div>
         </div>
 
         <div class="row mb-3">
@@ -128,13 +119,7 @@
           <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
         </button>
 
-        <button
-          type="submit"
-          id="save-entity"
-          data-cy="entityCreateSaveButton"
-          [disabled]="editForm.invalid || isSaving"
-          class="btn btn-primary"
-        >
+        <button type="submit" id="save-entity" data-cy="entityCreateSaveButton" [disabled]="isSaving" class="btn btn-primary">
           <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
         </button>
       </div>

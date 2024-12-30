@@ -5,5 +5,5 @@ package com.chiedba.candidat.domain.enumeration;
  */
 public enum Role {
     CANDIDAT,
-    ADMIN,
+    //ADMIN,
 }

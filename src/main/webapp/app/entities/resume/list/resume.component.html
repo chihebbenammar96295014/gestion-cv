@@ -38,9 +38,70 @@
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
+          <th scope="col" jhiSortBy="nom">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.appUser.nom">Nom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="prenom">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.appUser.prenom">Prenom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.appUser.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="motDePasse">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.appUser.motDePasse">Mot De Passe</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="adresse">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.appUser.adresse">Adresse</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numTelephone">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.appUser.numTelephone">Num Telephone</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="typeUser">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.appUser.typeUser">Type User</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="resume.id">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.appUser.resume">Resume</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+
           <th scope="col" jhiSortBy="description">
             <div class="d-flex">
               <span jhiTranslate="candidatApp.resume.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.competence.name">NameCompetence</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="niveau">
+            <div class="d-flex">
+              <span jhiTranslate="candidatApp.competence.niveau">NiveauCompetence</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
@@ -53,6 +114,16 @@
             <a [routerLink]="['/resume', resume.id, 'view']">{{ resume.id }}</a>
           </td>
           <td>{{ resume.description }}</td>
+          <td>{{ resume.nom }}</td>
+          <td>{{ resume.email }}</td>
+          <td>{{ resume.prenom }}</td>
+          <td>{{ resume.motDePasse }}</td>
+          <td>{{ resume.adresse }}</td>
+          <td>{{ resume.numTelephone }}</td>
+          <td jhiTranslate="{{ 'candidatApp.Role.' + resume.typeUser }}">{{ resume.typeUser }}</td>
+          <td>{{ resume.namecompetence }}</td>
+          <td>{{ resume.niveaucompetence }}</td>
+
           <td class="text-end">
             <div class="btn-group">
               <button type="submit" [routerLink]="['/resume', resume.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
